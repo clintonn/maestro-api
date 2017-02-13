@@ -2,9 +2,9 @@ class Api::V1::UsersController < Api::V1::ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      Auth.encrypt({user_id: @user.id})
+      jwt = Auth.issue({user_id: @user.id})
       render json: {
-        jwt: jwt, name: @user.name
+        jwt: jwt, userId: @user.id
       }
     end
   end
