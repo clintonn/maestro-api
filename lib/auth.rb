@@ -11,7 +11,6 @@ class Auth
   end
 
   def self.decode(hash)
-    binding.pry
     JWT.decode(hash, secret_key, true, {algorithm: ALGORITHM})
   end
 end
