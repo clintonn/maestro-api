@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post 'signup' => 'users#create'
       post 'login' => 'sessions#create'
       post 'trails/new' => 'trails#create'
+      post 'sections/new' => 'sections#create'
     end
   end
 

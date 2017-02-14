@@ -1,6 +1,5 @@
 class Api::V1::SessionsController < Api::V1::ApplicationController
   def create
-
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       jwt = Auth.issue({user_id: @user.id})
