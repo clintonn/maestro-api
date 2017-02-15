@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       post 'login' => 'sessions#create'
       post 'trails/new' => 'trails#create'
       post 'sections/new' => 'sections#create'
+      get 'categories/all' => 'categories#index'
+      get 'trails/:id/edit' => 'trails#edit'
+      post 'trails/:id' => 'trails#update'
     end
   end
 
