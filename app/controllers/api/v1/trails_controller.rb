@@ -1,6 +1,18 @@
 class Api::V1::TrailsController < Api::V1::ApplicationController
 
-  before_action :authenticate_user, only: [:create, :edit]
+  before_action :authenticate_user, only: :create
+
+  def show
+    @trail = Trail.find(params[:id])
+    if @trail
+      render json: @trail, include: {sections: [:resources]}
+    else
+      render json: {
+        errors: ["Unauthorized"],
+        status: 401
+      }
+    end
+  end
 
   def create
     @trail = Trail.new(trail_params)

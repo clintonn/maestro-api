@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :trails
+  has_many :trails, foreign_key: :author_id, class_name: :Trail
   has_secure_password
   # todo: http://guides.rubyonrails.org/association_basics.html#self-joins
 
