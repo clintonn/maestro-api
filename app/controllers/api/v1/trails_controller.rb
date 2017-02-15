@@ -1,6 +1,6 @@
 class Api::V1::TrailsController < Api::V1::ApplicationController
 
-  # before_action :authenticate_user, only: [:create, :edit]
+  before_action :authenticate_user, only: [:create, :edit]
 
   def create
     @trail = Trail.new(trail_params)
