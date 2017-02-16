@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         end
       end
       get 'trails/:id/edit' => 'trails#edit'
+      get 'categories/all' => 'categories#index'
     end
   end
 

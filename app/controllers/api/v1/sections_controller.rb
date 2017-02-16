@@ -3,15 +3,16 @@ class Api::V1::SectionsController < Api::V1::ApplicationController
   before_action :authenticate_user, only: :create
 
   def create
-    @section = Trail.new(section_params)
+    @section = Section.new(section_params)
+    @section.trail
     if @section.save
-      render json: @section
+      render json: @section.trail
     end
   end
 
   private
-  def trail_params
-    params.require(:section).permit(:trail_id, :name)
+  def section_params
+    params.require(:section).permit(:trail_id, :title)
   end
 
 end
