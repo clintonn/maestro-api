@@ -26,7 +26,7 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
     # needs authorization
     @trail = Trail.find(params[:id])
     if @trail
-      render json: @trail
+      render json: @trail, include: {sections: [:resources]}
     else
       render json: {
         errors: ["Unauthorized"],
