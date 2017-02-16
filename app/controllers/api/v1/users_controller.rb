@@ -9,7 +9,7 @@ class Api::V1::UsersController < Api::V1::ApplicationController
   def auth
     jwt = params["jwt"]
     begin
-      @user_id = Auth.decode(jwt)
+      @user_id = Auth.decode(jwt)[0]["user_id"]
     rescue JWT::DecodeError
       render json: {
         message: "User does not own this trail."
@@ -18,7 +18,6 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     render json: {
       "user_id": @user_id
     }, status: 200
-
   end
 
   def create
