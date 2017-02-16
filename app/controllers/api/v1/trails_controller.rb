@@ -8,8 +8,8 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
       render json: @trail, include: {sections: [:resources]}
     else
       render json: {
-        errors: ["Unauthorized"],
-        status: 401
+        errors: ["Trail not found"],
+        status: 404
       }
     end
   end
@@ -23,6 +23,7 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
   end
 
   def edit
+    # needs authorization
     @trail = Trail.find(params[:id])
     if @trail
       render json: @trail

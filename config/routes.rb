@@ -10,6 +10,7 @@ Rails.application.routes.draw do
           resources :resources
         end
       end
+      post 'users/auth' => 'users#auth'
       get 'trails/:id/edit' => 'trails#edit'
       get 'categories/all' => 'categories#index'
     end
