@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post 'users/auth' => 'users#auth'
       get 'trails/:id/edit' => 'trails#edit'
       get 'categories/all' => 'categories#index'
+      delete 'logoff' => 'sessions#destory'
     end
   end
 
