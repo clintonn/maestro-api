@@ -27,14 +27,15 @@ class Api::V1::UsersController < Api::V1::ApplicationController
       @user_id = Auth.decode(jwt)[0]["user_id"]
       @user = User.find(@user_id)
     rescue JWT::DecodeError
-      # doesn't seem to be able to reach this error...
-      render json: {
-        message: "User does not own this trail."
-      }, status: 403 and return
+       render json: {
+        "user_id": 'null'
+        }, status: 200
     end
-    render json: {
-      user: @user
-    }, status: 200
+    unless response_body
+     render json: {
+      "user_id": @user_id
+      }, status: 200
+    end
   end
 
 
