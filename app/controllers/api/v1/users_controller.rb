@@ -11,13 +11,18 @@ class Api::V1::UsersController < Api::V1::ApplicationController
     begin
       @user_id = Auth.decode(jwt)[0]["user_id"]
     rescue JWT::DecodeError
-      render json: {
-        message: "User does not own this trail."
-      }, status: 403
+      # render json: {
+      #   message: "User does not own this trail."
+      # }, status: 403
+       render json: {
+        "user_id": 'null'
+        }, status: 200
     end
-    render json: {
+    unless response_body
+     render json: {
       "user_id": @user_id
-    }, status: 200
+      }, status: 200
+    end
   end
 
   def create
