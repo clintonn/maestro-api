@@ -16,15 +16,15 @@ end
 trails = [
   {
     title: "Intro to JavaScript",
-    author_id: 14,
-    category_id: 4,
+    author_id: 1,
+    category_id: 1,
     description: "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum."
   }
 ]
 
 sections = [
-  {title: "Basic JavaScript", trail_id: 6 },
-  {title: "Advanced JavaScript", trail_id: 6}
+  {title: "Basic JavaScript", trail_id: 1 },
+  {title: "Advanced JavaScript", trail_id: 1}
 ]
 
 resources = [
@@ -36,7 +36,7 @@ resources = [
   {
     title: "Shrine to Linus Torvalds",
     url: "http://kernel.org",
-    section_id: 1
+    section_id: 2
   }
 ]
 

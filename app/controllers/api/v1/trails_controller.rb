@@ -5,7 +5,7 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
   def show
     @trail = Trail.find(params[:id])
     if @trail
-      render json: @trail, include: {sections: [:resources]}
+      render json: @trail, include: [:author, sections: [:resources]]
     else
       render json: {
         errors: ["Trail not found"],
