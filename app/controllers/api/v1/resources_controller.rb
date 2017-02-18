@@ -4,7 +4,7 @@ class Api::V1::ResourcesController < Api::V1::ApplicationController
 
   def create
     @resource = Resource.new(resource_params)
-    @img = MetaInspector.new(@resource.url).images.best
+    @img = MetaInspector.new(@resource.url, timeout: 2).images.best
     @img = Cloudinary::Uploader.upload(@img, max_width: 200)["url"]
     @resource.image_url = @image
 
