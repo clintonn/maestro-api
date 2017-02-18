@@ -5,7 +5,7 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
       jwt = Auth.issue({user_id: @user.id})
       render json: {
         jwt: jwt,
-        user: @user
+        user: {id: @user.id, email: @user.email, trails: @user.trails}
       }
     end
   end

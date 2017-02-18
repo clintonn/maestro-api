@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215220941) do
+ActiveRecord::Schema.define(version: 20170218184623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,30 @@ ActiveRecord::Schema.define(version: 20170215220941) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "expert_trail", id: false, force: :cascade do |t|
+    t.integer "expert_id", null: false
+    t.integer "trail_id",  null: false
+  end
+
+  create_table "experts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.text   "bio"
+    t.string "avatar_url"
+  end
+
+  create_table "experts_resources", id: false, force: :cascade do |t|
+    t.integer "expert_id"
+    t.integer "resource_id"
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "section_id"
+    t.string   "notes"
   end
 
   create_table "resources_trails", id: false, force: :cascade do |t|
@@ -56,6 +74,9 @@ ActiveRecord::Schema.define(version: 20170215220941) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "avatar_url"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end
