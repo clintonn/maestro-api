@@ -4,6 +4,10 @@ class Api::V1::ResourcesController < Api::V1::ApplicationController
 
   def create
     @resource = Resource.new(resource_params)
+    @img = MetaInspector.new(@resource.url).images.best
+    @img = Cloudinary::Uploader.upload(@img, max_width: 200)["url"]
+    @resource.image_url = @image
+
     if @resource.save
       render json: @resource.section.trail, include: {sections: [:resources]}
     end
@@ -11,6 +15,6 @@ class Api::V1::ResourcesController < Api::V1::ApplicationController
 
   private
   def resource_params
-    params.require(:resource).permit(:section_id, :title, :url)
+    params.require(:resource).permit(:section_id, :title, :url, :image_url)
   end
 end

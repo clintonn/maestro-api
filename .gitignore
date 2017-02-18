@@ -57,3 +57,6 @@ bower.json
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore cloudinary config
+/config/cloudinary.yml
