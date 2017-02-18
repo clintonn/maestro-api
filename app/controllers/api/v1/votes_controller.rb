@@ -1,6 +1,6 @@
 class Api::V1::VotesController < Api::V1::ApplicationController
 
-  #before_action :authenticate_user, only: :create
+  before_action :authenticate_user, only: :create
 
   def create
     @trail = Trail.find(params[:trail_id])
