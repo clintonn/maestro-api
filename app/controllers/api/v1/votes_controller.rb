@@ -5,8 +5,8 @@ class Api::V1::VotesController < Api::V1::ApplicationController
   def create
     @trail = Trail.find(params[:trail_id])
     @user = User.find(params[:user_id])
-    vote_up_trail unless already_voted_for_trail
-    render json: {"trail_votes": @trail.votes.count}, status: 200
+    vote_up_trail unless user_already_voted_for_trail
+    render json: @trail, include: [:author, sections: [:resources]]
   end
 
   private
@@ -15,7 +15,7 @@ class Api::V1::VotesController < Api::V1::ApplicationController
     @user.voted_trails << @trail
   end
 
-  def already_voted_for_trail
+  def user_already_voted_for_trail
     @user.voted_trails.include?(@trail)
   end
 

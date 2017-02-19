@@ -4,6 +4,7 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
 
   def show
     @trail = Trail.find(params[:id])
+    @bla = 'fasdfasdfa'
     if @trail
       render json: @trail, include: [:author, sections: [:resources]]
     else
