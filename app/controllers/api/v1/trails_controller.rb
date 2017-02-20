@@ -36,6 +36,13 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
     end
   end
 
+  def destroy
+    Trail.destroy(params[:id])
+    render json: {
+      message: "Deleted trail #{params[:id]}"
+    }
+  end
+
   private
 
   def trail_params
