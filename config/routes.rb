@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       get 'categories/all' => 'categories#index'
       delete 'logoff' => 'sessions#destory'
       post 'trails/:trail_id/votes/:user_id' => 'votes#create'
+      post 'trails/:trail_id/follows/:user_id' => 'follows#create'
+      delete 'trails/:trail_id/follows/:user_id' => 'follows#destroy'
     end
   end
 
