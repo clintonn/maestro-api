@@ -1,6 +1,19 @@
 class Api::V1::TrailsController < Api::V1::ApplicationController
 
-  before_action :authenticate_user, only: :create
+  before_action :authenticate_user, only: [:create, :index]
+
+  def index
+    @user = User.find(params[:user_id])
+    @trails = @user.followed_trails
+    if @trails
+      render json: @trails, include: [:author, sections: [:resources]]
+    else
+      render json: {
+        errors: ["Trails not found"],
+        status: 404
+      }
+    end
+  end
 
   def show
     @trail = Trail.find(params[:id])
