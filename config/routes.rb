@@ -5,9 +5,8 @@ Rails.application.routes.draw do
       post 'signup' => 'users#create'
       post 'login' => 'sessions#create'
       delete 'logoff' => 'sessions#destory'
-
+      get 'trails/featured' => 'trails#featured_trails'
       post 'search/trails' => 'search#trails'
-      post 'search/trails/featured' => 'search#featured_trails'
 
       delete 'login' => 'sessions#destroy'
       resources :trails do

@@ -6,9 +6,9 @@ class Api::V1::SearchController < Api::V1::ApplicationController
     render json: @results
   end
 
-  def featured_trails
-     @results = Trail.order(votes_count: :desc).limit(9)
-     render json: @results
-  end
+  # def featured_trails
+  #    @results = Trail.order(votes_count: :desc).limit(9)
+  #    render json: @results
+  # end
 
 end
