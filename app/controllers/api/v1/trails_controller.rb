@@ -28,6 +28,7 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
   end
 
   def create
+    binding.pry
     @trail = Trail.new(trail_params)
     @trail.author_id = @user.id
     if @trail.save
@@ -63,7 +64,7 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:title, :description, :user_id, :category_id)
+    params.require(:trail).permit(:title, :description, :user_id, :category_id, :image_url)
   end
 
 end

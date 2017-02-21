@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-categories = [{name: "Programming"}, {name: "Design"}, {name: "Music"}]
+categories = [{name: "Programming"}, {name: "Design"}, {name: "Music"}, {name: "Cooking"}, {name: "Photography"}]
 
 categories.each do |category|
   Category.create(category)
