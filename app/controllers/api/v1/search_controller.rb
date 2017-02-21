@@ -6,4 +6,8 @@ class Api::V1::SearchController < Api::V1::ApplicationController
     render json: @results
   end
 
+  def featured_trails
+    binding.pry
+  end
+
 end

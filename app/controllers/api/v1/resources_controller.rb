@@ -7,7 +7,7 @@ class Api::V1::ResourcesController < Api::V1::ApplicationController
   end
 
   def generate_thumbnail(url)
-    Cloudinary::Uploader.upload(url, responsive_breakpoints: {create_derived: true, max_width: 160})
+    Cloudinary::Uploader.upload(url, responsive_breakpoints: {create_derived: true, max_width: 420})
   end
 
   def create

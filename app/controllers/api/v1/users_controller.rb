@@ -28,13 +28,11 @@ class Api::V1::UsersController < Api::V1::ApplicationController
       @user = User.find(@user_id)
     rescue JWT::DecodeError
        render json: {
-        "user_id": 'null'
-        }, status: 200
+         "user": "null"
+        }, status: 202
     end
     unless response_body
-     render json: {
-      "user_id": @user_id
-      }, status: 200
+     render json: @user
     end
   end
 
