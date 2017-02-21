@@ -7,7 +7,7 @@ class Api::V1::SearchController < Api::V1::ApplicationController
   end
 
   def featured_trails
-    #binding.pry
+     Trail.order(votes_count: :desc).limit(9)
   end
 
 end
