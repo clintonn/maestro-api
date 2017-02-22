@@ -28,7 +28,6 @@ class Api::V1::TrailsController < Api::V1::ApplicationController
   end
 
   def create
-    binding.pry
     @trail = Trail.new(trail_params)
     @trail.author_id = @user.id
     if @trail.save
